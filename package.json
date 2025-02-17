@@ -1,0 +1,21 @@
+{
+  "name": "image-portfolio",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist/index.js",
+  "scripts": {
+    "start": "npm run build && node .",
+    "build": "rmdir /s /q dist && tsc",
+    "export": "npm run build && @powershell Copy-item -Force -Recurse 'dist' -Destination 'export/dist' && @powershell Copy-item -Force -Recurse 'data' -Destination 'export/' && @powershell Copy-Item -Path 'package.json' -Destination './export/package.json' && @powershell Copy-Item -Path '.env' -Destination './export/.env' && @powershell Copy-Item -Path '_start.bat' -Destination './export/_start.bat' && @powershell Copy-Item -Path 'package-lock.json' -Destination './export/package-lock.json' && @powershell Compress-Archive -Force -Path './export/*' -DestinationPath './bot_export' && @powershell Remove-Item -Path './export' -Recurse -Force"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^22.13.1",
+    "typescript": "^5.7.3"
+  },
+  "dependencies": {
+    "tslib": "^2.8.1"
+  }
+}
