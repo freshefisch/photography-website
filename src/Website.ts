@@ -133,6 +133,7 @@ ${categoryContainers}
     }
 
     readOverviewDataFile(): void {
+        if (!fs.existsSync("./data/data.json")) { return };
         const dataStr: string = fs.readFileSync("./data/data.json", "utf-8");
         const dataObj = JSON.parse(dataStr);
         const data: OverviewData = dataObj as OverviewData;
@@ -155,6 +156,14 @@ ${categoryContainers}
     }
 
     makeMissingDataFiles(): void {
+        if (!fs.existsSync("./data/")){
+            fs.mkdirSync("./data/");
+        }
+
+        if (!fs.existsSync("./data/Categories")){
+            fs.mkdirSync("./data/Categories");
+        }
+        
 
         if (!fs.existsSync("./data/data.json")) {
             this.makeOverviewDataFile();
