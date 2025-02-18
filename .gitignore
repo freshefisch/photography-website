@@ -1,5 +1,5 @@
 data/*
-dist
+dist/*
 build
 node_modules
 website_build/*
