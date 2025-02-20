@@ -20,7 +20,7 @@ export class Website {
         fs.mkdirSync(rootPath);
         fs.mkdirSync(rootPath + "/Categories");
 
-        console.log("[INFO] Created default folder structure");
+        console.log("[INFO] Created output folder structure");
 
         // read data files
         this.readAllDataFiles();
@@ -156,25 +156,33 @@ ${categoryContainers}
     }
 
     makeMissingDataFiles(): void {
+        let count: number = 0;
         if (!fs.existsSync("./data/")){
             fs.mkdirSync("./data/");
+            count += 1;
         }
 
         if (!fs.existsSync("./data/Categories")){
             fs.mkdirSync("./data/Categories");
+            count += 1;
         }
         
 
         if (!fs.existsSync("./data/data.json")) {
             this.makeOverviewDataFile();
+            count += 1;
         }
 
         let categoryFolders = fs.readdirSync(`./data/Categories`);
         for (let categoryFolder of categoryFolders) {
             if (!fs.existsSync("./data/Categories/" + categoryFolder + "/data.json")) {
                 this.makeDataFile(categoryFolder);
+                count += 1;
             }
-            else return;
+        }
+
+        if (count > 0) {
+            console.log(`[INFO] Created ${count} new folders/files`);
         }
     }
 
@@ -219,9 +227,6 @@ ${categoryContainers}
 }
 
 class Category {
-    // constructor(imgData: ImageData[]) {
-    //     this.images = imgData
-    // }
     foldername: string = "";
     title: string = "";
     date: string = "";
