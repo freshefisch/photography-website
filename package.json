@@ -5,7 +5,8 @@
   "main": "dist/index.js",
   "scripts": {
     "start": "npm run build && node .",
-    "build": "if exist dist ( rmdir /s /q dist ); tsc"
+    "build": " npm run clean && tsc",
+    "clean": "if exist dist ( rmdir /s /q dist )"
   },
   "keywords": [],
   "author": "",
