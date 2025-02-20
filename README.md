@@ -1,35 +1,49 @@
-## This is a website builder that builds you a photo portfolio based on your photos
+# This is a website builder that builds you a photo portfolio based on your photos
 
-### How to use:
+## How to use
 
-1. Install modules
+### 1. Install modules
    
    `npm install`
 
-2. Add your images in the `data/` folder. Create a folder for each category/collection. Each folder will get it's own page.
+### 2. Build and run javascript to create folder structure
+
+   Windows: `npm run start`
+
+   Other: `tsc`, `node .`
+
+
+
+### 3. Add your images 
+Create a folder for each category/collection in the `data/Categories/` folder. Each folder will get it's own page, showing all images inside the folder.
    ```
    data/
-   - Japan/
-   - - img1.jpg
-   - - img2.jpg
-   ... etc
+     Categories/
+       Japan/
+         img1.jpg
+         img2.jpg
+       Macro/
+         img1.jpg
+         img2.jpg
+         img3.jpg
+   ...
    ```
    
 
-4. Build and run javascript:
+### 4. Build website again
    
-   `npm run start`
+   `node .`
 
-5. Check out the built page
+### 5. Check out the built website
 
    Open the generated website in `website_build/`
 
-6. Adjust the website content
+### 6. Adjust the website content
 
    Go into `data/` and adjust the content of the `data.json` files both in the root and in every category/collection folder that you created.
 
-7. Build website again
+### 7. Build website again
 
    `node .`
 
-Repeat step 6. and 7. to adjust your website!
+### Repeat step 6. and 7. to adjust your website!
