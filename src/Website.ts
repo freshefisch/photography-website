@@ -490,5 +490,6 @@ footer {
     text-decoration: none;
     letter-spacing: .25em;
     border: 1px solid white;
+    text-align: center;
 }
 `
